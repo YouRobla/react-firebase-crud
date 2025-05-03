@@ -5,7 +5,7 @@ import ModalDelete from './ModalDelete';
 import ModalAdd from './ModalAdd';
 import ModalEdit from './ModalEdit';
 import AppList from './AppList';
-import { motion } from "framer-motion"; // Importar framer-motion
+import { motion } from "framer-motion";
 
 const Show = () => {
   const [aplicaciones, setAplicaciones] = useState([]);
@@ -15,7 +15,7 @@ const Show = () => {
   const [appToDelete, setAppToDelete] = useState(null);
   const [appToEdit, setAppToEdit] = useState(null);
   const [newApp, setNewApp] = useState({ Nombre: "", Version: "" });
-  const [loading, setLoading] = useState(true); // Estado de carga
+  const [loading, setLoading] = useState(true);
 
   const aplicacionesCollection = collection(db, "aplicacion");
 
@@ -36,29 +36,28 @@ const Show = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <h2 className="text-3xl font-semibold text-center text-gray-700 mb-8">Mostrar Aplicaciones</h2>
+    <div className="min-h-screen bg-gray-50 p-6 lg:p-8">
+      <h2 className="text-2xl sm:text-3xl font-semibold text-center text-gray-700 mb-8">Mostrar Aplicaciones</h2>
       
       {loading ? (
         <div className="flex justify-center items-center text-lg text-gray-500">
           <p>Cargando aplicaciones...</p>
         </div>
       ) : (
-        <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-         <div className="flex justify-between items-center flex-wrap mb-6 gap-4">
-  <h2 className="text-2xl sm:text-3xl font-bold text-gray-700 text-center sm:text-left w-full sm:w-auto">Aplicaciones</h2>
-  
-  <button
-    onClick={() => setIsAddModalOpen(true)}
-    className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg hover:from-blue-700 hover:to-indigo-700 transform transition-all duration-300 hover:scale-105"
-  >
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
-    </svg>
-    Agregar Aplicación
-  </button>
-</div>
-
+        <div className="w-full max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+          <div className="flex justify-between items-center flex-wrap mb-6 gap-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-700 text-center sm:text-left w-full sm:w-auto">Aplicaciones</h2>
+            
+            <button
+              onClick={() => setIsAddModalOpen(true)}
+              className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg hover:from-blue-700 hover:to-indigo-700 transform transition-all duration-300 hover:scale-105"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+              </svg>
+              Agregar Aplicación
+            </button>
+          </div>
 
           <AppList
             aplicaciones={aplicaciones}
