@@ -19,13 +19,16 @@ const ModalAdd = ({ isAddModalOpen, setIsAddModalOpen, newApp, setNewApp, setApl
 
   return (
     isAddModalOpen && (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 animate__animated animate__fadeIn">
-        <div className="bg-white p-8 rounded-lg shadow-xl w-1/3 transition-all duration-300 ease-in-out transform hover:scale-105">
-          <h3 className="text-2xl font-semibold text-gray-700 mb-6">Agregar Nueva Aplicación</h3>
-          
+        <div className="fixed inset-0 bg-black bg-opacity-10 flex justify-center items-center z-50 px-4">
+
+
+
+        <div className="bg-white w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl p-6 sm:p-8 rounded-lg shadow-xl transition-all duration-300 ease-in-out animate__animated animate__fadeIn">
+          <h3 className="text-xl sm:text-2xl font-semibold text-gray-700 mb-6 text-center sm:text-left">Agregar Nueva Aplicación</h3>
+
           {/* Campo Nombre */}
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2">Nombre de la aplicación</label>
+            <label className="block text-gray-700 mb-2 text-sm sm:text-base">Nombre de la aplicación</label>
             <input
               type="text"
               value={newApp.Nombre}
@@ -37,7 +40,7 @@ const ModalAdd = ({ isAddModalOpen, setIsAddModalOpen, newApp, setNewApp, setApl
 
           {/* Campo Versión */}
           <div className="mb-6">
-            <label className="block text-gray-700 mb-2">Versión</label>
+            <label className="block text-gray-700 mb-2 text-sm sm:text-base">Versión</label>
             <input
               type="text"
               value={newApp["Version"]}
@@ -47,11 +50,11 @@ const ModalAdd = ({ isAddModalOpen, setIsAddModalOpen, newApp, setNewApp, setApl
             />
           </div>
 
-          <div className="flex justify-end space-x-6">
+          <div className="flex flex-col sm:flex-row justify-center sm:justify-end gap-4">
             {/* Botón Cancelar */}
             <button
               onClick={() => setIsAddModalOpen(false)}
-              className="bg-gray-300 text-gray-700 px-6 py-3 rounded-md hover:bg-gray-400 transition duration-200"
+              className="bg-gray-300 text-gray-700 px-5 py-2 rounded-md hover:bg-gray-400 transition duration-200"
             >
               Cancelar
             </button>
@@ -59,7 +62,7 @@ const ModalAdd = ({ isAddModalOpen, setIsAddModalOpen, newApp, setNewApp, setApl
             {/* Botón Agregar */}
             <button
               onClick={agregarAplicacion}
-              className="bg-indigo-500 text-white px-6 py-3 rounded-md hover:bg-indigo-600 transition duration-200"
+              className="bg-indigo-500 text-white px-5 py-2 rounded-md hover:bg-indigo-600 transition duration-200"
             >
               Agregar
             </button>

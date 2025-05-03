@@ -24,10 +24,10 @@ const Show = () => {
       const data = await getDocs(aplicacionesCollection);
       const apps = data.docs.map(doc => ({ id: doc.id, ...doc.data() }));
       setAplicaciones(apps);
-      setLoading(false); // Finaliza el estado de carga cuando los datos estén listos
+      setLoading(false); 
     } catch (error) {
       console.error("Error al obtener las aplicaciones:", error);
-      setLoading(false); // Finaliza el estado de carga si hay un error
+      setLoading(false); 
     }
   };
 
@@ -45,12 +45,20 @@ const Show = () => {
         </div>
       ) : (
         <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-          <button
-            onClick={() => setIsAddModalOpen(true)}
-            className="bg-blue-600 text-white font-medium px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transform transition duration-300 ease-in-out hover:scale-105"
-            >
-            Agregar Aplicación
-            </button>
+         <div className="flex justify-between items-center flex-wrap mb-6 gap-4">
+  <h2 className="text-2xl sm:text-3xl font-bold text-gray-700 text-center sm:text-left w-full sm:w-auto">Aplicaciones</h2>
+  
+  <button
+    onClick={() => setIsAddModalOpen(true)}
+    className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium px-5 py-2.5 rounded-lg shadow-md hover:shadow-lg hover:from-blue-700 hover:to-indigo-700 transform transition-all duration-300 hover:scale-105"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
+    </svg>
+    Agregar Aplicación
+  </button>
+</div>
+
 
           <AppList
             aplicaciones={aplicaciones}

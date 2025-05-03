@@ -17,8 +17,8 @@ const ModalEdit = ({ isEditModalOpen, setIsEditModalOpen, appToEdit, setAppToEdi
 
   return (
     isEditModalOpen && (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 animate__animated animate__fadeIn">
-        <div className="bg-white p-8 rounded-lg shadow-xl w-1/3 transition-all duration-300 ease-in-out transform hover:scale-105">
+      <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50 px-4">
+        <div className="bg-white p-6 md:p-8 rounded-lg shadow-xl w-full max-w-2xl lg:max-w-lg transition-all duration-300 ease-in-out transform hover:scale-105">
           <h3 className="text-2xl font-semibold text-gray-700 mb-6">Editar Aplicación</h3>
 
           {/* Campo Nombre */}
@@ -45,19 +45,16 @@ const ModalEdit = ({ isEditModalOpen, setIsEditModalOpen, appToEdit, setAppToEdi
             />
           </div>
 
-          <div className="flex justify-end space-x-6">
-            {/* Botón Cancelar */}
+          <div className="flex justify-end space-x-4">
             <button
               onClick={() => setIsEditModalOpen(false)}
-              className="bg-gray-300 text-gray-700 px-6 py-3 rounded-md hover:bg-gray-400 transition duration-200"
+              className="bg-gray-300 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-400 transition duration-200"
             >
               Cancelar
             </button>
-
-            {/* Botón Guardar Cambios */}
             <button
               onClick={editarAplicacion}
-              className="bg-indigo-500 text-white px-6 py-3 rounded-md hover:bg-indigo-600 transition duration-200"
+              className="bg-indigo-500 text-white px-6 py-2 rounded-md hover:bg-indigo-600 transition duration-200"
             >
               Guardar Cambios
             </button>
